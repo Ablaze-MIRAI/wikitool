@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"io/ioutil"
 	"log"
 	"os"
@@ -28,11 +29,12 @@ func pageList() []Page {
 	}
 
 	for _, file := range files {
-		if file.Name() == ".git" || file.IsDir() {
+		if file.Name() == ".git" || !file.IsDir() {
 			continue
 		}
 
 		path = filepath.Join(cwd, file.Name())
+    fmt.Println(path)
 
 		pages = append(pages, Page{
 			name: file.Name(),
