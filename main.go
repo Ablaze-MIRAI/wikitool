@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"os"
 	"path/filepath"
@@ -33,10 +32,7 @@ func main() {
 				Usage: "ページを選択して編集します。",
 				Action: func(*cli.Context) error {
 					path := selectCategory(categoryList())
-          // fmt.Println("Filepath", path)
-          // fmt.Println("pageList", pageList(path))
           base := selectPage(pageList(path))
-          fmt.Println(base)
 					Xopen(base)
 					return nil
 				},
