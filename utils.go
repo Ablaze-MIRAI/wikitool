@@ -1,13 +1,14 @@
 package main
 
 import (
-	"fmt"
 	"io/ioutil"
 	"log"
 	"os"
 	"os/exec"
 	"path/filepath"
 	"runtime"
+	"fmt"
+	"github.com/manifoldco/promptui"
 )
 
 type Category struct {
@@ -15,33 +16,9 @@ type Category struct {
 	path string
 }
 
-func pageList() []Page {
-	// ページ一覧を取得
-
-	var path string
-	var pages []Page
-
-	cwd, _ := os.Getwd()
-
-	files, err := ioutil.ReadDir(".")
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	for _, file := range files {
-		if file.Name() == ".git" || !file.IsDir() {
-			continue
-		}
-
-		path = filepath.Join(cwd, file.Name())
-    fmt.Println(path)
-
-		pages = append(pages, Page{
-			name: file.Name(),
-			path: path,
-		})
-	}
-	return pages
+type Page struct {
+  name string
+  path string
 }
 
 func Xopen(path string) {
@@ -76,9 +53,20 @@ func open(cmd, path string) {
 	c.Run()
 }
 
-func categorys() []Category {
+func replaceExt(filePath, from, to string) string {
+	ext := filepath.Ext(filePath)
+	if len(from) > 0 && ext != from {
+		return filePath
+	}
+	return filePath[:len(filePath)-len(ext)] + to
+}
+
+func categoryList() []Category {
+	// ページ一覧を取得
+
 	var path string
 	var categories []Category
+
 	cwd, _ := os.Getwd()
 
 	files, err := ioutil.ReadDir(".")
@@ -101,10 +89,53 @@ func categorys() []Category {
 	return categories
 }
 
-func replaceExt(filePath, from, to string) string {
-    ext := filepath.Ext(filePath)
-    if len(from) > 0 && ext != from {
-        return filePath
-    }
-    return filePath[:len(filePath)-len(ext)] + to
+func genNewPath(categoryPath, fileName string) string {
+	return filepath.Join(categoryPath, fileName)
+}
+
+func inputFileName() string {
+	validate := func(input string) error {
+		return nil
+	}
+
+	prompt := promptui.Prompt{
+		Label:    "ファイル名",
+		Validate: validate,
+	}
+
+	result, err := prompt.Run()
+
+	if err != nil {
+		fmt.Printf("Prompt failed %v\n", err)
+		return ""
+	}
+
+	return result
+}
+
+func pageList(searchDir string) []Page {
+  var pages []Page
+
+  cwd, _ := os.Getwd()
+
+	files, err := ioutil.ReadDir(searchDir)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	for _, file := range files {
+		if file.Name() == ".git" || file.Name() == "imgs" || file.IsDir() {
+			continue
+		}
+
+    filePath := filepath.Join(cwd, file.Name())
+    fmt.Println(file.Name())
+
+    pages = append(pages, Page{
+      name: file.Name(),
+      path: filePath,
+    })
+	}
+
+  return pages
 }

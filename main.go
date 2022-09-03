@@ -18,14 +18,13 @@ func main() {
 				Action: func(*cli.Context) error {
 					// プロンプトを用いて対話的にページを作成する
 
-          categoryPath := selectCategory(categoryList())
-          fileName := inputFileName()
-          fmt.Println(categoryPath, fileName)
-          newFilePath := replaceExt(
-            filepath.Join(categoryPath, fileName,),
-          "",
-          ".md")
-          Xopen(newFilePath)
+					categoryPath := selectCategory(categoryList())
+					fileName := inputFileName()
+					newFilePath := replaceExt(
+						filepath.Join(categoryPath, fileName),
+						"",
+						".md")
+					Xopen(newFilePath)
 					return nil
 				},
 			},
@@ -33,7 +32,12 @@ func main() {
 				Name:  "edit",
 				Usage: "ページを選択して編集します。",
 				Action: func(*cli.Context) error {
-          Xopen(selectPage(pageList()))
+					path := selectCategory(categoryList())
+          // fmt.Println("Filepath", path)
+          // fmt.Println("pageList", pageList(path))
+          base := selectPage(pageList(path))
+          fmt.Println(base)
+					Xopen(base)
 					return nil
 				},
 			},

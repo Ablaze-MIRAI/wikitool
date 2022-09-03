@@ -4,16 +4,10 @@ import (
 	"fmt"
 	"io/ioutil"
 	"log"
-	"path/filepath"
 	"strings"
 
 	"github.com/ktr0731/go-fuzzyfinder"
 )
-
-type Page struct {
-	name string
-	path string
-}
 
 func selectFile() string {
 	path := ""
@@ -30,14 +24,13 @@ func selectPage(pages []Page) string {
 			if i == -1 {
 				return ""
 			}
-			return fmt.Sprintf("カテゴリ: %s\n%s\n %s",
+			return fmt.Sprintf("%s:\n%s\n %s",
 				pages[i].name,
-        strings.Repeat("-", w),
+				strings.Repeat("-", w),
 				func() string {
-					// pages[i].path
-					text, err := ioutil.ReadFile(filepath.Join(pages[i].path, "README.md"))
+					text, err := ioutil.ReadFile(pages[i].path)
 					if err != nil {
-            return "README.mdが見つかりません。"
+						return "ファイルが開けません。"
 					}
 					return string(text)
 				}())
