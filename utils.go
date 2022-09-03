@@ -113,12 +113,12 @@ func inputFileName() string {
 	return result
 }
 
-func pageList(searchDir string) []Page {
+func pageList(categoryDir string) []Page {
   var pages []Page
 
   cwd, _ := os.Getwd()
 
-	files, err := ioutil.ReadDir(searchDir)
+	files, err := ioutil.ReadDir(categoryDir)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -128,8 +128,7 @@ func pageList(searchDir string) []Page {
 			continue
 		}
 
-    filePath := filepath.Join(cwd, file.Name())
-    fmt.Println(file.Name())
+    filePath := filepath.Join(cwd, categoryDir,  file.Name())
 
     pages = append(pages, Page{
       name: file.Name(),

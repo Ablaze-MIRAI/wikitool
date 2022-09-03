@@ -44,5 +44,6 @@ func selectCategory(categories []Category) string {
 	if err != nil {
 		log.Fatal(err)
 	}
-	return categories[idx[0]].path
+  // HACK: 本来pathを使うべきだが絶対パスの処理の関係でnameになっている
+	return categories[idx[0]].name
 }
