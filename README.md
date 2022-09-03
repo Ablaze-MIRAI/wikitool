@@ -8,7 +8,7 @@
 
 # Wikitool :fire:
 
-[Ablaze-MIRAI/Wiki]()を管理するためのCLIツール
+[Ablaze-MIRAI/Wiki](https://github.com/Ablaze-MIRAI/wiki)を管理するためのCLIツール
 
 </div>
 
