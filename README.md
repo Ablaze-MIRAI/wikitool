@@ -1,10 +1,10 @@
 <div align="center">
 
-![Last commit](https://img.shields.io/github/last-commit/Comamoca/wikitool?style=flat-square)
-![Repository Stars](https://img.shields.io/github/stars/Comamoca/wikitool?style=flat-square)
-![Issues](https://img.shields.io/github/issues/Comamoca/wikitool?style=flat-square)
-![Open Issues](https://img.shields.io/github/issues-raw/Comamoca/wikitool?style=flat-square)
-![Bug Issues](https://img.shields.io/github/issues/Comamoca/wikitool/bug?style=flat-square)
+![Last commit](https://img.shields.io/github/last-commit/Ablaze-MIRAI/wikitool?style=flat-square)
+![Repository Stars](https://img.shields.io/github/stars/Ablaze-MIRAI/wikitool?style=flat-square)
+![Issues](https://img.shields.io/github/issues/Ablaze-MIRAI/wikitool?style=flat-square)
+![Open Issues](https://img.shields.io/github/issues-raw/Ablaze-MIRAI/wikitool?style=flat-square)
+![Bug Issues](https://img.shields.io/github/issues/Ablaze-MIRAI/wikitool/bug?style=flat-square)
 
 # Wikitool 🔥
 
