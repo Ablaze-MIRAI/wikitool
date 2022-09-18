@@ -1,13 +1,14 @@
 package main
 
 import (
+	"fmt"
 	"io/ioutil"
 	"log"
 	"os"
 	"os/exec"
 	"path/filepath"
 	"runtime"
-	"fmt"
+
 	"github.com/manifoldco/promptui"
 )
 
@@ -17,8 +18,8 @@ type Category struct {
 }
 
 type Page struct {
-  name string
-  path string
+	name string
+	path string
 }
 
 func Xopen(path string) {
@@ -114,9 +115,9 @@ func inputFileName() string {
 }
 
 func pageList(categoryDir string) []Page {
-  var pages []Page
+	var pages []Page
 
-  cwd, _ := os.Getwd()
+	cwd, _ := os.Getwd()
 
 	files, err := ioutil.ReadDir(categoryDir)
 	if err != nil {
@@ -128,13 +129,13 @@ func pageList(categoryDir string) []Page {
 			continue
 		}
 
-    filePath := filepath.Join(cwd, categoryDir,  file.Name())
+		filePath := filepath.Join(cwd, categoryDir, file.Name())
 
-    pages = append(pages, Page{
-      name: file.Name(),
-      path: filePath,
-    })
+		pages = append(pages, Page{
+			name: file.Name(),
+			path: filePath,
+		})
 	}
 
-  return pages
+	return pages
 }

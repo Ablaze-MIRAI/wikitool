@@ -32,7 +32,7 @@ func main() {
 				Usage: "ページを選択して編集します。",
 				Action: func(*cli.Context) error {
 					path := selectCategory(categoryList())
-          base := selectPage(pageList(path))
+					base := selectPage(pageList(path))
 					Xopen(base)
 					return nil
 				},
