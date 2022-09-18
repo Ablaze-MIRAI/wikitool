@@ -1,30 +1,39 @@
 <div align="center">
 
-<!-- ![Last commit](https://img.shields.io/github/last-commit/Comamoca/baserepo?style=flat-square) -->
-<!-- ![Repository Stars](https://img.shields.io/github/stars/Comamoca/baserepo?style=flat-square) -->
-<!-- ![Issues](https://img.shields.io/github/issues/Comamoca/baserepo?style=flat-square) -->
-<!-- ![Open Issues](https://img.shields.io/github/issues-raw/Comamoca/baserepo?style=flat-square) -->
-<!-- ![Bug Issues](https://img.shields.io/github/issues/Comamoca/baserepo/bug?style=flat-square) -->
+![Last commit](https://img.shields.io/github/last-commit/Comamoca/wikitool?style=flat-square)
+![Repository Stars](https://img.shields.io/github/stars/Comamoca/wikitool?style=flat-square)
+![Issues](https://img.shields.io/github/issues/Comamoca/wikitool?style=flat-square)
+![Open Issues](https://img.shields.io/github/issues-raw/Comamoca/wikitool?style=flat-square)
+![Bug Issues](https://img.shields.io/github/issues/Comamoca/wikitool/bug?style=flat-square)
 
-# Wikitool :fire:
+# Wikitool 🔥
 
-[Ablaze-MIRAI/Wiki](https://github.com/Ablaze-MIRAI/wiki)を管理するためのCLIツール
-
+[Ablaze-MIRAI/Wiki](https://github.com/Ablaze-MIRAI/wiki)を管理するためのCLIツール。
+Wikiの構造に則っていれば誰でも使用できます。
 </div>
 
-<div align="center">
+## Wikiについて
 
-</div>
+Wikiとは、Githubでドキュメント管理するためのディレクトリ構造とその実装です。
+
+```sh
+.
+├── README.md(現在地)
+└── カテゴリ
+     ├── README.md
+     └── 記事.md
+```
+上のように、カテゴリ名でディレクトリ名を作り、その中に`README.md`と記事を追加します。`README.md`は必須ではありませんが、wikitoolで検索した際にプレビューが表示されるので追加することを推奨します。
 
 ## 🚀 使い方
 
-```
-# 新規記事作成
-wikitool new
+### 新規記事作成
 
-# 記事の編集
-wikitool edit
-```
+`wikitool new`
+
+### 記事の編集
+
+`wikitool edit`
 
 現在、カテゴリの追加(ディレクトリの新規作成)はwikitoolから出来ない為、新しいカテゴリが必要な場合は自身で作成して下さい。
 また、Gitについても連携機能がまだ未実装なためご自身で実行してください。
