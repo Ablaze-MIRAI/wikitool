@@ -8,7 +8,7 @@
 
 # Wikitool 🔥
 
-[Ablaze-MIRAI/Wiki](https://github.com/Ablaze-MIRAI/wiki)を管理するためのCLIツール。
+**Ablaze-MIRAI/Wiki**(Ablazeの非公開な内部Wiki)を管理するためのCLIツール。
 Wikiの構造に則っていれば誰でも使用できます。
 </div>
 
